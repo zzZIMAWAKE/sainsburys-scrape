@@ -6,7 +6,6 @@ class Item
     protected $size;
     protected $unitPrice;
     protected $description;
-    protected $url;
 
     public function setTitle($title)
     {
@@ -46,15 +45,5 @@ class Item
     public function getDescription()
     {
         return $this->description;
-    }
-
-    public function setUrl($url)
-    {
-        $this->url = $url;
-    }
-
-    public function getUrl()
-    {
-        return $this->url;
     }
 }
