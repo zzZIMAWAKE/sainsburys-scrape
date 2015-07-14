@@ -8,6 +8,8 @@
     {
         protected $url;
 
+        //Provides a default URL and calls all required
+        // functionality
         public function getItemJson($url = null)
         {
             $defaultUrl = 'http://www.sainsburys.co.uk/webapp/wcs/stores/'
@@ -21,10 +23,10 @@
                           . 'Size=20&orderBy=FAVOURITES_FIRST&searchTerm=&begin'
                           . 'Index=0&hideFilters=true';
 
-            $this->url = ($url === null) ? $defaultUrl : $url;
+            $this->url  = ($url === null) ? $defaultUrl : $url;
 
             $webScraper = $this->getWebScraper();
-            $items = $webScraper->getItems();
+            $items      = $webScraper->getItems();
 
             $this->printJson(json_encode($items, JSON_PRETTY_PRINT));
         }

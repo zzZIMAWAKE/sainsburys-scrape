@@ -10,6 +10,7 @@
         protected $crawler;
         protected $client;
 
+        //Sets up get requests
         public function __construct($url = null)
         {
             if ($url === null) {
@@ -21,6 +22,8 @@
             $this->crawler = $this->getRequest();
         }
 
+        //Filters the HTML by items
+        //@returns array[]
         public function getItems()
         {
             $items = [];
@@ -53,11 +56,15 @@
             return $items;
         }
 
+        //Calculates the size of the html file in kb
+        //@returns string
         public function getPageSize($url)
         {
             return round(strlen($url->text()) / 1024) . "kb";
         }
 
+        //Calculates the total of all items prices
+        //@returns float
         public function getItemsTotal($items) 
         {
             $total = 0;
@@ -69,16 +76,22 @@
             return number_format($total, 2);
         }
 
+        //Trims and filters for item description
+        //@returns string
         public function getItemDescription($itemPage)
         {
             return trim($itemPage->filter('.productText')->text());
         }
 
+        //Trims and filters for item title
+        //@returns string
         public function getItemTitle($node)
         {
             return trim($node->filter('.productInfo h3 a')->text());
         }
 
+        //filters and prepares item price
+        //@returns float
         public function getItemUnitPrice($node)
         {
             $priceStr = explode('/', $node->filter('.pricePerUnit')->text())[0];
