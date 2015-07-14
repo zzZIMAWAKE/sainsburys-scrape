@@ -1,7 +1,7 @@
 <?php
     include '../vendor/autoload.php';
-    include 'controller/ItemListController.php';
-    include 'model/item.php';
+
+    use application\controller\ItemListController;
 
     $itemListController = new ItemListController();
     $itemListController->getItemJson();

@@ -1,49 +1,56 @@
 <?php
 
-class Item
-{
-    protected $title;
-    protected $size;
-    protected $unitPrice;
-    protected $description;
+    namespace application\model;
 
-    public function setTitle($title)
+    class Item
     {
-        $this->title = $title;
-    }
+        protected $title;
+        protected $size;
+        protected $unitPrice;
+        protected $description;
 
-    public function getTitle()
-    {
-        return $this->title;
-    }
+        public function setTitle($title)
+        {
+            $this->title = $title;
+        }
 
-    public function setSize($size)
-    {
-        $this->size = $size;
-    }
+        public function getTitle()
+        {
+            return $this->title;
+        }
 
-    public function getSize()
-    {
-        return $this->size;
-    }
+        public function setSize($size)
+        {
+            $this->size = $size;
+        }
 
-    public function setUnitPrice($unitPrice)
-    {
-        $this->unitPrice = $unitPrice;
-    }
+        public function getSize()
+        {
+            return $this->size;
+        }
 
-    public function getUnitPrice()
-    {
-        return $this->unitPrice;
-    }
+        public function setUnitPrice($unitPrice)
+        {
+            $this->unitPrice = $unitPrice;
+        }
 
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
+        public function getUnitPrice()
+        {
+            return $this->unitPrice;
+        }
 
-    public function getDescription()
-    {
-        return $this->description;
+        public function setDescription($description)
+        {
+            $this->description = $description;
+        }
+
+        public function getDescription()
+        {
+            return $this->description;
+        }
+
+        public function getObjectAsArray()
+        {
+            return get_object_vars($this);
+        }
     }
-}
